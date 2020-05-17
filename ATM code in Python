@@ -1,0 +1,57 @@
+print("\nWelcome to the Bank\n")
+restart=('Y')
+chances=3
+balance=999.12
+while chances>=0:
+    pin=int(input("Please enter your 4 digit pin number:\t"))
+    if pin==(1234):
+        print("You entered the pin correctly")
+        print("\nPress 1 for your Balance\nPress 2 for Cash Withdrawal\nPress 3 for Cash Deposit\nPress 4 for Card Return")
+        choice=int(input("Please enter your choice:\t"))
+        if choice==1:
+            print("Your balance is",balance)
+            restart=input("Would you like to continue?")
+            if restart in ('no','N','n','NO'):
+                print("Thank you")
+                break
+        elif choice==2:
+            withdrawal=float(input("How much would you like to withdraw? 500,1000,1500,2000\nFor other entry press 1\t"))
+            if withdrawal in (500,1000,1500,2000):
+                if withdrawal>balance:
+                    print("Insufficient Balance,Please try again")
+                    continue
+                balance=balance-withdrawal
+                print("Your balance is",balance)
+                restart=input("Would you like to continue?Press any key to continue")
+                if restart in ('n','N','NO','no'):
+                    print("Thank You")
+                    break
+            elif withdrawal not in (500,1000,1500,2000):
+                print("Invalid amount,Please retry")
+                continue
+            elif withdrawal == 1:
+                withdrawal= float(input("Enter the amount to withdraw"))
+                balance=balance-withdrawal
+                print("Your balance is",balance)
+        elif choice==3:
+            deposit=float(input("How much would you like to deposit?"))
+            balance=balance+deposit
+            print("Your balance is",balance)
+            restart=input("Would you like to continue?,Press any key to continue")
+            if restart in ('no','NO','N','n'):
+                print("Thank yOU")
+                break
+        elif choice==4:
+            print("Please wait while your card is returned")
+            print("Thank you")
+            break
+        else:
+            print("Please enter a correct number")
+            continue
+    elif pin!=1234:
+        print("Incorrect pin entered")
+        chances=chances-1
+        if chances==0:
+            print("Your card is been blocked")
+            break
+                
