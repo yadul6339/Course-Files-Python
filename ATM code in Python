@@ -1,5 +1,4 @@
 print("\nWelcome to the Bank\n")
-restart=('Y')
 chances=3
 balance=999.12
 while chances>=0:
